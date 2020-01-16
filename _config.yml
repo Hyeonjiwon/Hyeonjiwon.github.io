@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : "Hyeon Jiwon"
-  avatar           : "https://user-images.githubusercontent.com/47733530/72498091-ae014480-3871-11ea-912b-806a478d75a2.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/img/me.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an **amazing** person."
   location         : "Somewhere"
   email            :
