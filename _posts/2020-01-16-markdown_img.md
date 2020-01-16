@@ -73,7 +73,7 @@ __commit하고 결과 확인__
 - 이미지를 삽입하는 문장 뒤에 {: width=" " height=" "} 추가하기
 
 ```
-![GitHub Logo](/images/logo.png){: width="50" height="100"}
+![GitHub Logo](/images/logo.png){: width="50%" height="50%"}
 ```
 
 - html의 <img> 태그 사용하기
