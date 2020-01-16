@@ -1,5 +1,5 @@
 ---
-title: [Github] Git 블로그 글에 이미지 업로드 
+title: '[Github] Git 블로그 글에 이미지 업로드' 
 excerpt: Git 블로그에 포스팅에 이미지 업로드 & 경로 설정
 categories:
 - github
