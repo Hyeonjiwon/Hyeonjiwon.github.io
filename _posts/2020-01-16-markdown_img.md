@@ -43,18 +43,22 @@ Format: ![Alt Text](url)
 
 ### 이미지 경로 설정
 1. 자신의 Github Repository에 들어간다.
+<br>
 
 2. Issues탭에 가면 있는 New issue를 누른다.
 
 ![1](https://user-images.githubusercontent.com/47733530/72496134-12210a00-386c-11ea-80a9-d22f01b59af8.png)
+<br>
 
 3. 이미지 파일을 textbox에 끌어서 놓는다. 또는 붙여넣기로 첨부한다. 
 
 ![3](https://user-images.githubusercontent.com/47733530/72496141-16e5be00-386c-11ea-92eb-cdffc77d75ca.png)
+<br>
 
 4. 마크다운 링크 문법으로 업로드된 이미지 주소를 복사하여 md파일에 붙여넣는다. 
 
 ![4](https://user-images.githubusercontent.com/47733530/72496147-18af8180-386c-11ea-8c9a-dbcf36153e8a.png)
+<br>
 
 __commit하고 결과 확인__
 
