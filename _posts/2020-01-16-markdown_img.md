@@ -79,6 +79,26 @@ __commit하고 결과 확인__
 ### 이미지 정렬
 이미지를 가운데로 정렬시키는 방법도 사이즈를 조절하는 방법과 마찬가지로 두가지 방법이 있습니다.
 
+- css 파일을 만들고 가운데 정렬 속성을 부여한 후, 이미지에 적용 
+
+```
+.center {
+    display : block;
+    maring : auto;
+}
+```
+그 후, 마크다운 파일에서 이미지에 적용
+
+```
+![GitHub Logo](/images/logo.png){: width="50%" height="50%"0}{: .center}
+```
+
+- html의 <center> 기능을 이용
+```
+<center><img src="/images/logo.png" width="50%" height="50%"></center>
+```
+두번째 방법이 개인적으로 더 간단하고 편한것 같아 추천드립니다. ㅎ 
+
 <br>
 
 ## 결과
