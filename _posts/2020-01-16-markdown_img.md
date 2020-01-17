@@ -93,10 +93,12 @@ __commit하고 결과 확인__
 ![GitHub Logo](/images/logo.png){: width="50%" height="50%"0}{: .center}
 ```
 
-- html의 <center> 기능을 이용
+- 'html의 <center> 기능을 이용'
+
 ```
 <center><img src="/images/logo.png" width="50%" height="50%"></center>
 ```
+
 두번째 방법이 개인적으로 더 간단하고 편한것 같아 추천드립니다. ㅎ 
 
 <br>
