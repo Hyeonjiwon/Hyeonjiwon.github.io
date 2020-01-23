@@ -1,7 +1,7 @@
 # main links
 main:
   - title : "About"
-    url : "https://hyeonjiwon.github.io/about/"
+    url : "/about/"
   - title : "Category"
     url : "/categories/"
   # - title: "About"
