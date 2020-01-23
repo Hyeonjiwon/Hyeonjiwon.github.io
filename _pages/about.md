@@ -1,7 +1,7 @@
 ---
-permalink: /about/
 title: "About"
 excerpt: "About Me"
+permalink: /about/
 search: true
 gallery:
 '''
