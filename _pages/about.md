@@ -1,19 +1,8 @@
 ---
+permalink: /about/
 title: "About"
 excerpt: "About Me"
-permalink: /about/
 search: true
-gallery:
-'''
-  - url: /assets/img/git.PNG
-    image_path: /assets/img/git.PNG
-    alt: "자체 GIT 서버"
-    title: "git Server"
-  - url: /assets/img/mail.PNG
-    image_path: /assets/img/mail.PNG
-    alt: "메일 서버"
-    title: Mail Server
-'''
 last_modified_at: 2020-01-23T13:00:00+09:00
 toc: true
 
