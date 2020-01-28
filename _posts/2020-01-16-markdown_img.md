@@ -1,8 +1,8 @@
 ---
-title: '[Markdown] Git 블로그 글에 이미지 업로드' 
+title: '[Markdown] Git 블로그 이미지 업로드' 
 excerpt: 마크다운 문법으로 이미지 업로드 하기
 categories:
-- markdown
+- Markdown
 
 author_profile: true    #작성자 프로필 출력 여부
 
