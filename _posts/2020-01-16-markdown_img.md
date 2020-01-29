@@ -4,6 +4,11 @@ excerpt: 마크다운 문법으로 이미지 업로드 하기
 categories:
 - Markdown
 
+tag:
+    - Blogging
+    - Github Page
+    - Markdown
+
 author_profile: true    #작성자 프로필 출력 여부
 
 last_modified_at: 2020-01-16T13:00:00+09:00
