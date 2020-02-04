@@ -72,10 +72,10 @@ toc_sticky: true
 ![슬라이드34](https://user-images.githubusercontent.com/47733530/73522162-1001a280-444b-11ea-9782-ba4f49ad07cf.PNG)
 ![슬라이드35](https://user-images.githubusercontent.com/47733530/73522163-1001a280-444b-11ea-88dd-dffa3c806da9.PNG)
 ![슬라이드36](https://user-images.githubusercontent.com/47733530/73522164-1001a280-444b-11ea-94e9-95ceedbc68f5.PNG)
-
-[![결과](https://www.youtube.com/watch?v=_eKLK-5hce8/0.jpg)](https://www.youtube.com/watch?v=_eKLK-5hce8)
-
-▲ 결과 영상 클릭
-
 ![슬라이드37](https://user-images.githubusercontent.com/47733530/73522165-109a3900-444b-11ea-9bcb-9423dc028dcb.PNG)
 ![슬라이드38](https://user-images.githubusercontent.com/47733530/73522166-109a3900-444b-11ea-9461-d95a7cbec54e.PNG)
+
+__결과영상__
+
+[![결과](https://www.youtube.com/watch?v=_eKLK-5hce8/0.jpg)](https://www.youtube.com/watch?v=_eKLK-5hce8)
+▲ 결과 영상 클릭
