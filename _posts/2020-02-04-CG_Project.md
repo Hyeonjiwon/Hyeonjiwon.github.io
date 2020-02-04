@@ -48,6 +48,6 @@ AutoCAD를 이용하여 무드등 모형을 설계하였고, 3D프린터를 이�
 
 ## 결과영상
 
-[![결과](https://www.youtube.com/watch?v=cheCAp_XcaA)](https://www.youtube.com/watch?v=cheCAp_XcaA)
+[![결과](https://www.youtube.com/watch?v=cheCAp_XcaA/0.jpg)](https://www.youtube.com/watch?v=cheCAp_XcaA)
 
 ▲ 결과 영상 클릭

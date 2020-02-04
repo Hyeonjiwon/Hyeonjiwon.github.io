@@ -82,6 +82,6 @@ toc_sticky: true
 
 ## 결과영상
 
-[![결과](https://www.youtube.com/watch?v=_eKLK-5hce8/0.jpg)](https://www.youtube.com/watch?v=_eKLK-5hce8)
+[![결과](https://www.youtube.com/watch?v=_eKLK-5hce8/1.jpg)](https://www.youtube.com/watch?v=_eKLK-5hce8)
 
 ▲ 결과 영상 클릭
