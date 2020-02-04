@@ -18,12 +18,12 @@ toc: true
  - Undergraduate resercher at Embedded System LAB (2018.06 ~ )
  - LikeLion 7th @SCH (2019.03 ~ )
 
- ## Current Interest
+## Current Interest
  * Artifitial Intelligence
  * Machine Learning
  * Internet of Things
 
- ## Contact
+## Contact
  * Email : zlone1208@gmail.com
  * Git : [https://github.com/Hyeonjiwon](https://github.com/Hyeonjiwon)
  * Blog : [https://hyeonjiwon.github.io/](https://hyeonjiwon.github.io/)
