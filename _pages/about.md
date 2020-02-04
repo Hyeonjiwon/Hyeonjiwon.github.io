@@ -11,7 +11,20 @@ toc: true
 ## Profile
 <center><img src="/assets/img/me.jpg" width="30%" height="30%"></center>
 
-## Education
- - 순천향대학교 컴퓨터공학과 임베디드 시스템 연구실 학부연구생(2018~)
- - 멋쟁이 사자처럼 7기 (2019)
-...
+* NAME : JiWon, Hyeon
+* MAJOR : Computer Science Engineering
+
+## Career & Activities
+ - Undergraduate resercher at Embedded System LAB (2018.06 ~ )
+ - LikeLion 7th @SCH (2019.03 ~ )
+
+ ## Current Interest
+ * Artifitial Intelligence
+ * Machine Learning
+ * Internet of Things
+
+ ## Contact
+ * Email : zlone1208@gmail.com
+ * Git : [https://github.com/Hyeonjiwon](https://github.com/Hyeonjiwon)
+ * Blog : [https://hyeonjiwon.github.io/](https://hyeonjiwon.github.io/)
+
