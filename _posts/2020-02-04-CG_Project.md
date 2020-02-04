@@ -14,8 +14,16 @@ author_profile: true    #작성자 프로필 출력 여부
 
 last_modified_at: 2020-02-4T13:00:00+09:00
 
+toc: true   #Table Of Contents 목차 
 toc_sticky: true
 ---
+
+## Intro
+3학년 1학기 컴퓨터그래픽스 과목 텀프로젝트 입니다.
+AutoCAD를 이용하여 무드등 모형을 설계하였고, 3D프린터를 이용하여 출력하였습니다.
+아두이노와 네오픽셀, 블루투스 스피커 모듈을 이용하여 블루투스 스피커로도 활용할 수 있는 무드등을 만들어보았습니다.
+
+## Project
 
 ![슬라이드1](https://user-images.githubusercontent.com/47733530/73716789-5d3b8800-475b-11ea-9c96-e8548aedeb63.PNG)
 ![슬라이드2](https://user-images.githubusercontent.com/47733530/73716790-5d3b8800-475b-11ea-878c-ffa0c83ac223.PNG)
@@ -38,9 +46,7 @@ toc_sticky: true
 ![슬라이드19](https://user-images.githubusercontent.com/47733530/73716807-60367880-475b-11ea-8bbb-7ec1f672bccf.PNG)
 ![슬라이드20](https://user-images.githubusercontent.com/47733530/73716809-60367880-475b-11ea-9375-d90675a3df0d.PNG)
 
-
-
-__결과영상__
+## 결과영상
 
 [![결과](https://www.youtube.com/watch?v=cheCAp_XcaA)](https://www.youtube.com/watch?v=cheCAp_XcaA)
 

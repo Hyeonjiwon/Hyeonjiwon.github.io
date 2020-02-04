@@ -20,9 +20,14 @@ author_profile: true    #작성자 프로필 출력 여부
 
 last_modified_at: 2020-01-31T16:00:00+09:00
 
+toc: true   #Table Of Contents 목차 
 toc_sticky: true
 ---
-<br>
+
+## Intro
+
+
+## Project
 
 ![슬라이드1](https://user-images.githubusercontent.com/47733530/73521972-b4371980-444a-11ea-8189-2db7d9c9b66e.PNG)
 
@@ -75,7 +80,7 @@ toc_sticky: true
 ![슬라이드37](https://user-images.githubusercontent.com/47733530/73522165-109a3900-444b-11ea-9bcb-9423dc028dcb.PNG)
 ![슬라이드38](https://user-images.githubusercontent.com/47733530/73522166-109a3900-444b-11ea-9461-d95a7cbec54e.PNG)
 
-__결과영상__
+## 결과영상
 
 [![결과](https://www.youtube.com/watch?v=_eKLK-5hce8/0.jpg)](https://www.youtube.com/watch?v=_eKLK-5hce8)
 
