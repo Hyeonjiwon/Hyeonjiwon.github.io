@@ -38,7 +38,7 @@ conda list
 ```
 
 ![2.6-13](/assets/img/anaconda/2.6-13.png)
-
+.
 
 __3. 주피터 노트북 설치 & 실행__
 
