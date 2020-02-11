@@ -3,9 +3,9 @@
    ========================================================================== */
 
 /* Colors */
-$background-color: #FAFAFC !default;
+$background-color: #f2f2ff !default;
 $text-color: #252533 !default;
-$muted-text-color: #252533 !default;
+$muted-text-color: #37375c !default;
 $primary-color: #252533 !default;
 $border-color: mix(#fff, #393e46, 75%) !default;
 $footer-background-color: $primary-color !default;
@@ -15,7 +15,7 @@ $masthead-link-color-hover: $text-color !default;
 $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 
 .page__footer {
-  color: #8486c3 !important; // override
+  color: #e6e6ff !important; // override
 }
 
 .page__footer-follow .social-icons .svg-inline--fa {
