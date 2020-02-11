@@ -9,7 +9,9 @@ toc: true
 --- 
 
 ## Profile
+<div class="author__avatar">
 <center><img src="/assets/img/me.jpg" width="30%" height="30%"></center>
+</div>
 
 * NAME : JiWon, Hyeon
 * MAJOR : Computer Science Engineering
