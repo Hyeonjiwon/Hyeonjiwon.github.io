@@ -10,11 +10,12 @@ toc: true
 
 ## Profile
 <center><img src="/assets/img/me.jpg" width="30%" height="30%" style="
-border: 3px solid gold;
-border-radius: 7px;
--moz-border-radius: 7px;
--khtml-border-radius: 7px;
--webkit-border-radius: 7px;
+border: 1px solid gold;
+border-radius: 50%;
+padding: 5px
+-moz-border-radius: 50%;
+-khtml-border-radius: 50%;
+-webkit-border-radius: 50%;
 "></center>
 
 
