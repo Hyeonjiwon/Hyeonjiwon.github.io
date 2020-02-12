@@ -9,7 +9,13 @@ toc: true
 --- 
 
 ## Profile
-<center><img src="/assets/img/me.jpg" width="30%" height="30%"></center>
+<center><img src="/assets/img/me.jpg" width="30%" height="30%" style="
+border: 3px solid gold;
+border-radius: 7px;
+-moz-border-radius: 7px;
+-khtml-border-radius: 7px;
+-webkit-border-radius: 7px;
+"></center>
 
 
 * NAME : JiWon, Hyeon
