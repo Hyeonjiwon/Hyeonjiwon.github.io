@@ -1,6 +1,6 @@
 ---
-title: '[마이크로프로세서] 3-2 텀프로젝트' 
-excerpt: 스마트 횡단보도
+title: '[마이크로프로세서] 스마트 횡단보도' 
+excerpt: 3-2 마이크로프로세서 텀프로젝트
 categories:
 - Project
 

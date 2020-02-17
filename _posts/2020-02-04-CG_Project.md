@@ -1,6 +1,6 @@
 ---
-title: '[컴퓨터그래픽스] 3-1 텀프로젝트' 
-excerpt: AutoCAD로 직접 설계한 블루투스 스피커와 무드등
+title: '[컴퓨터그래픽스] AutoCAD로 직접 설계한 블루투스 스피커와 무드등' 
+excerpt: 3-1 컴퓨터그래픽스 텀프로젝트
 categories:
 - Project
 
