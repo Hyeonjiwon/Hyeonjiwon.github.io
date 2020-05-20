@@ -2,7 +2,7 @@
 title: '[Tensorflow] Tensorflow 설치' 
 excerpt: 아나콘다에 가상환경에서 Tensorflow 설치하기 
 categories:
-    - Machine Learning
+    - Anaconda
 
 tag:
     - Anaconda
