@@ -58,10 +58,10 @@ Github에 업로드(add -> commit -> push)를 한 후에 확인을 클릭하여 
 sitemap.xml 파일을 본인의 Github blog 최상위 디렉토리에 아래 내용을 넣고 생성해줍니다. 참고로 _config.yml 파일의 url이 본인의 웹 사이트 주소여야 합니다. 
 
 
-  ![17-6](https://user-images.githubusercontent.com/47733530/82900673-daec0380-9f97-11ea-9322-d9f7d0f489a7.png)
+![17-6](https://user-images.githubusercontent.com/47733530/82900673-daec0380-9f97-11ea-9322-d9f7d0f489a7.png)
 
 
-<center><img src="\img\SearchConsole\17-7.png" width="50%" height="50%"></center>
+![17-7](https://user-images.githubusercontent.com/47733530/82904462-78960180-9f9d-11ea-8274-e43d788a66bf.png)
 
 
 당연히 Github에 업로드 해주어야겠지요? 
