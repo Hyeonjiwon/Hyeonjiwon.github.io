@@ -16,8 +16,6 @@ toc: true   #Table Of Contents 목차
 toc_sticky: true
 ---
 
----
-
 ## Intro
 Google Search Console은 웹 사이트 즉, 현재 제 블로그 포스팅들이 구글 검색 엔진에 노출될 수 있도록 해줍니다. 이번 포스팅에서는 Github blog 글들을 구글에서 검색되도록 설정해 보겠습니다. 
 
@@ -56,7 +54,7 @@ Github에 업로드(add -> commit -> push)를 한 후에 확인을 클릭하여 
 
 구글 검색 엔진이 지속적으로 크롤링 작업을 할 수 있도록 사이트맵을 등록해주어야 합니다. 
 
- sitemap.xml 파일을 본인의 Github blog 최상위 디렉토리에 아래 내용을 넣고 생성해줍니다. 참고로 _config.yml 파일의 url이 본인의 웹 사이트 주소여야 합니다. 
+sitemap.xml 파일을 본인의 Github blog 최상위 디렉토리에 아래 내용을 넣고 생성해줍니다. 참고로 _config.yml 파일의 url이 본인의 웹 사이트 주소여야 합니다. 
 
 
   ![17-6](https://user-images.githubusercontent.com/47733530/82900673-daec0380-9f97-11ea-9322-d9f7d0f489a7.png)
