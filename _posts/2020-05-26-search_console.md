@@ -1,6 +1,6 @@
 ---
 title: '[Etc] 구글 서치 콘솔(Google Search Console)'
-excerpt: "구글 서치 콘솔(Google Search Console)에 웹 사이트 등록하기"
+excerpt: "구글 서치 콘솔(Google Search Console)에 웹 사이트와 sitemap.xml 등록하기"
 categories:
     - Etc
 
@@ -61,28 +61,8 @@ sitemap.xml 파일을 본인의 Github blog 최상위 디렉토리에 아래 내
   ![17-6](https://user-images.githubusercontent.com/47733530/82900673-daec0380-9f97-11ea-9322-d9f7d0f489a7.png)
 
 
-```
----
----
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for post in site.posts %}
-    <url>
-        <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
-    </url>
-    {% endfor %}
+<center><img src="\img\SearchConsole\17-7.png" width="50%" height="50%"></center>
 
-    {% for page in site.pages %}
-    {% if page.layout != nil %}
-    {% if page.layout != 'feed' %}
-    <url>
-        <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
-    </url>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-</urlset>
-```
 
 당연히 Github에 업로드 해주어야겠지요? 
 
