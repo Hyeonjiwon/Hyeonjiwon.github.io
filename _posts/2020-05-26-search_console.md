@@ -1,6 +1,6 @@
 ---
 title: '[Etc] 구글 서치 콘솔(Google Search Console)'
-excerpt:구글 서치 콘솔(Google Search Console)에 웹 사이트 등록하기
+excerpt: "구글 서치 콘솔(Google Search Console)에 웹 사이트 등록하기"
 categories:
     - Etc
 
