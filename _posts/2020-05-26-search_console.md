@@ -61,7 +61,7 @@ sitemap.xml 파일을 본인의 Github blog 최상위 디렉토리에 아래 내
   ![17-6](https://user-images.githubusercontent.com/47733530/82900673-daec0380-9f97-11ea-9322-d9f7d0f489a7.png)
 
 
-```html
+```
 ---
 ---
 <?xml version="1.0" encoding="UTF-8"?>
