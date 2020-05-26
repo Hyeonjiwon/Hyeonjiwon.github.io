@@ -1,12 +1,12 @@
 ---
-title: '[Github] Git 정리'
-excerpt: Git & Git 명령어에 대한 정리
+title: '[Etc] 구글 서치 콘솔(Google Search Console)'
+excerpt:구글 서치 콘솔(Google Search Console)에 웹 사이트 등록하기
 categories:
     - Etc
 
 tag:
-    - Git
-    - Github Command
+    - Google
+    - Google Search Console
 
 author_profile: true    #작성자 프로필 출력 여부
 
@@ -21,7 +21,7 @@ toc_sticky: true
 <center><img src="https://user-images.githubusercontent.com/47733530/72419812-df6e0780-37c0-11ea-907c-1fd2bace1f6d.png" width="40%" height="30%"></center>
 
 ## Intro
-자주 사용하는 Git 명령어와 Git에 대해 정리해보고자 합니다.
+
 
 
 ## Git이란?
