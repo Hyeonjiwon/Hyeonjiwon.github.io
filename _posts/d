@@ -1,0 +1,49 @@
+import spark.implicits._
+
+case class Incidents(
+    incidentnum:String, 
+    category:String,
+    description:String, 
+    dayofweek:String, 
+    date:String, 
+    time:String, 
+    pddistrict:String, 
+    resolution:String, 
+    address:String,
+    X:Double, 
+    Y:Double,
+    pdid:String)
+
+val sfpdDS = 
+spark.read.option("inferSchema",true).csv("/sparkdata/sfpd/sfpd.csv").toDF("incidentnum", "category", "description", "dayofweek", "date", "time", "pddistrict", "resolution", "address", "X", "Y", "pdid").as[Incidents]
+
+sfpdDS.printSchema()
+sfpdDS.createTempView("sfpd")
+
+
+
+import spark.implicits._
+import org.apache.spark.sql.types._
+
+val sfpdSchema = new StructType(Array(
+    new StructField("incidentnum", StringType, true),
+    new StructField("category", StringType, true),
+    new StructField("description", StringType, true),
+    new StructField("dayofweek", StringType, true),
+    new StructField("date", StringType, true),
+    new StructField("time", StringType, true),
+    new StructField("pddistrict", StringType, true),
+    new StructField("resolution", StringType, true),
+    new StructField("address", StringType, true),
+    new StructField("X", FloatType, true),
+    new StructField("Y", FloatType, true),
+    new StructField("pdid", StringType, true)
+    ))
+
+val sfpdDF = spark.read.format("csv").schema(sfpdSchema).load("/sparkdata/sfpd/sfpd.csv").toDF("incidentnum", "category", "description", "dayofweek", "date", "time", "pddistrict", "resolution", "address", "X", "Y", "pdid")
+
+case class Incidents(incidentnum:String, category:String, description:String, dayofweek:String, date:String, time:String, pddistrict:String, resolution:String, address:String, X:Double, Y:Double, pdid:String)
+val sfpdDS = sfpdDF.as[Incidents]
+sfpdDS.printSchema()
+
+sfpdDF.createTempView("sfpd")
