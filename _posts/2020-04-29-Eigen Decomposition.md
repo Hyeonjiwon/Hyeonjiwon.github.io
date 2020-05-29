@@ -17,6 +17,8 @@ last_modified_at: 2020-04-29T18:00:00+09:00
 toc: true   #Table Of Contents 목차 
 
 toc_sticky: true
+
+published : false
 ---
 
 ## 고유벡터(Eigen Vector)
