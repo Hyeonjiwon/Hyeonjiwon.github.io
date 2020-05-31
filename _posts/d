@@ -4,11 +4,11 @@ Date
 Time	
 Location	
 Operator	
-Flight #	
-Route	
+// Flight #	
+// Route	
 AC Type	
 Registration	
-cn/ln	
+//cn/ln	
 Aboard	
 Aboard Passangers	
 Aboard Crew	
@@ -19,21 +19,21 @@ Ground
 Summary
 
 
-case class Incidents(
+case class Incidents( 
     date:String, 
     time:String,
     location:String, 
     operator:String, 
-    date:String, 
-    time:String, 
-    pddistrict:String, 
-    resolution:String, 
-    address:String,
-    X:Double, 
-    Y:Double,
-    pdid:String)
+    ACtype:String, 
+    aboard:String, 
+    aboard_passangers:String, 
+    aboard_crew:String, 
+    fatalities:StringType,
+    fatalities_passangers:StringType,S
+    fatalities_crew:StringType,
+    summary:String)
 
-val sfpdDS = spark.read.option("inferSchema",true).csv("/sparkdata/sfpd/sfpd.csv").toDF("incidentnum", "category", "description", "dayofweek", "date", "time", "pddistrict", "resolution", "address", "X", "Y", "pdid").as[Incidents]
+val sfpdDF = spark.read.format("csv").schema(sfpdSchema).load("/termdata/airplane/ACaF.csv").toDF("date", "time", "location", "operator", "ACtype", "aboard", "aboard_passangers", "aboard_crew", "fatalities", "fatalities_passangers", "fatalities_crew", "summary")
 
 sfpdDS.printSchema()
 sfpdDS.createTempView("sfpd")
@@ -42,26 +42,37 @@ sfpdDS.createTempView("sfpd")
 import spark.implicits._
 import org.apache.spark.sql.types._
 
-val sfpdSchema = new StructType(Array(
-    new StructField("incidentnum", StringType, true),
-    new StructField("category", StringType, true),
-    new StructField("description", StringType, true),
-    new StructField("dayofweek", StringType, true),
+val airplaneSchema = new StructType(Array(
     new StructField("date", StringType, true),
     new StructField("time", StringType, true),
-    new StructField("pddistrict", StringType, true),
-    new StructField("resolution", StringType, true),
-    new StructField("address", StringType, true),
-    new StructField("X", FloatType, true),
-    new StructField("Y", FloatType, true),
-    new StructField("pdid", StringType, true)
+    new StructField("location", StringType, true),
+    new StructField("operator", StringType, true),
+    new StructField("ACtype", StringType, true),
+    new StructField("aboard", StringType, true),
+    new StructField("aboard_passangers", StringType, true),
+    new StructField("aboard_crew", StringType, true),
+    new StructField("fatalities", StringType, true),
+    new StructField("fatalities_passangers", StringType, true),
+    new StructField("fatalities_crew", StringType, true),
+    new StructField("summary", StringType, true)
     ))
+    
+val airplaneDF = spark.read.format("csv").schema(airplaneSchema).load("/termdata/airplane/ACaF.csv").toDF("date", "time", "location", "operator", "ACtype", "aboard", "aboard_passangers", "aboard_crew", "fatalities", "fatalities_passangers", "fatalities_crew", "summary")
 
-val sfpdDF = spark.read.format("csv").schema(sfpdSchema).load("/sparkdata/sfpd/sfpd.csv").toDF("incidentnum", "category", "description", "dayofweek", "date", "time", "pddistrict", "resolution", "address", "X", "Y", "pdid")
-
-case class Incidents(incidentnum:String, category:String, description:String, dayofweek:String, date:String, time:String, pddistrict:String, resolution:String, address:String, X:Double, Y:Double, pdid:String)
-
-val sfpdDS = sfpdDF.as[Incidents]
-sfpdDS.printSchema()
-
-sfpdDF.createTempView("sfpd")
+case class Airplane( 
+    date:String, 
+    time:String,
+    location:String, 
+    operator:String, 
+    ACtype:String, 
+    aboard:String, 
+    aboard_passangers:String, 
+    aboard_crew:String, 
+    fatalities:String,
+    fatalities_passangers:String,
+    fatalities_crew:String,
+    summary:String)
+    
+val airplaneDS = airplaneDF.as[Airplane]
+airplaneDS.printSchema()
+airplaneDS.show()
