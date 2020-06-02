@@ -1,23 +1,19 @@
+============== 텀프 ==============
 import spark.implicits._
 
 Date	
 Time	
 Location	
 Operator	
-// Flight #	
-// Route	
 AC Type	
 Registration	
-//cn/ln	
 Aboard	
 Aboard Passangers	
 Aboard Crew	
 Fatalities	
 Fatalities Passangers	
 Fatalities Crew	
-Ground	
 Summary
-
 
 case class Incidents( 
     date:String, 
@@ -76,3 +72,265 @@ case class Airplane(
 val airplaneDS = airplaneDF.as[Airplane]
 airplaneDS.printSchema()
 airplaneDS.show()
+
+============== 실습 1 ==============
+import spark.implicits._
+
+case class Incidents(
+    incidentnum:String, 
+    category:String,
+    description:String, 
+    dayofweek:String, 
+    date:String, 
+    time:String, 
+    pddistrict:String, 
+    resolution:String, 
+    address:String,
+    X:Double, 
+    Y:Double,
+    pdid:String)
+
+//데이터세트 정의
+//케이스 클래스를 이용하여 데이터 셋을 읽어 들임
+// as[Incidents] 생략되면 데이터 프레임
+val sfpdDS = 
+spark.read.option("inferSchema",true).csv("/sparkdata/sfpd/sfpd.csv").toDF("incidentnum", "category", "description", "dayofweek", "date", "time", "pddistrict", "resolution", "address", "X", "Y", "pdid").as[Incidents]
+
+// sfpdDS("pddistrict") <- apply()메소드를 적용한 것 
+// 지구대의 이름(열의 값)이 SOUTHERN인 경우만 필터링하여 새로운 데이터 세트로 변환 
+
+val districtDS = sfpdDS.filter(sfpdDS("pddistrict").contains("SOUTHERN"))
+
+// 변환된 SOUTHERN의 데이터만 테이블 형식으로 반환
+
+districtDS.show()
+
+// 액션, 전체 레코드(행)의 개수를 카운트 = SOUTHERN에서의 사건을 카운트한것과 일치
+
+districtDS.count()
+
+
+
+============== 실습 2 _ 워드 카운트 ==============
+import spark.implicits._
+
+// 문자열 타입의 라인으로 구성된 데이터 세트 정의 
+// 디렉토리 밑에 있는 모든 파일을 읽어들임, 한줄을 레코드로 문자형으로 데이터 세트를 읽어 들임
+val dataDS = spark.read.text("/sparkdata/word").as[String]
+//각 라인의 값이 나옴
+dataDS.show()
+// 레코드 단위(한 줄)로 카운트, 라인 수를 카운트 하는 것
+dataDS.count()
+
+
+// 공백문자로 구분하여 단어 분리
+// flatMap : 각 줄(행)에 대해 익명함수의 동작을 수행, 컬렉션의 고차함수로써 요소, 원소(레코드)에 대해 수행되는 동작을 함수로 기술
+// value = 문자열 인수, value.split() 분리하라는 것  
+val wordsDS = dataDS.flatMap(value => value.split("\\s+"))
+wordsDS.printSchema()
+// 전체 단어의 카운트 수
+wordsDS.count()
+// 전체 단어가 보여짐
+wordsDS.show()
+
+// 각 단어별로 카운트 하기 위해 그룹화
+// 그룹 데이터세트를 생성
+val groupDS = wordsDS.groupBy("value")
+
+// 그룹(단어)을 카운트한 후 표시
+// 카운트 된 데이터 프레임으로 변환 , 형식은 value , count 두 열이 값으로 이루어진 데이터프레임
+val counts = groupDS.count()
+counts.show()
+
+ ============== SFPD Top 5 주소 - 스칼라  ==============
+
+// 데이터 세트 생성
+// 원본 데이터 세트에 대해 열 이름(주소)를 기준으로 그룹화
+val incByAddDS = sfpdDS.groupBy("address")
+
+// 각 주소 별로 사건의 수를 카운트
+// 그룹화 된 주소의 카운트 값을 데이터 셋으로 변환, 액션이 아니라 변환
+val numAddDS = incByAddDS.count
+
+// 가장 많이 발생한 순으로 나올 수 있도록 내림차순으로 정렬
+// 열의 이름은 count, count라는 열에 대해 .desc 내림차순으로 정렬
+val numAddDesc = numAddDS.sort($"count".desc)
+
+// 정렬된 처음 5개 주소를 표시
+numAddDesc.show(5)
+numAddDesc.take(5)
+
+// 한문장으로 결합
+val incByAdd = sfpdDS.groupBy("address").count.sort($"count".desc).show(5)
+
+
+============== SFPD Top 5 주소 - SQL ==============
+
+// 데이터세트를 View로 등록 (또 등록하면 에러 발생)
+sfpdDS.createOrReplaceTempView("sfpd")
+
+// SQL 버전 질의 
+// spark.sql 연산을 통해 연산 기술, 인수로 SQL문 사용
+// incidentnum이라는 열에 이름에 대해 count
+val topByAddressSQL = spark.sql("SELECT address, count(incidentnum) AS inccount FROM sfpd GROUP BY address ORDER BY inccount DESC LIMIT 5")
+
+// 생성된 sql을 show라는 액션을 통해 
+topByAddressSQL.show()
+
+
+============== SFPD Top 5 주소 - 제플린 차트 ==============
+
+
+%sql SELECT pddistrict, count(incidentnum) AS inccount FROM sfpd GROUP BY pddistrict ORDER BY inccount DESC LIMIT 5
+
+
+============== SFPD Top 5 주소 - JSON 저장 ==============
+
+// format("json") json 형식으로 저장
+// .save("") 하둡의 분산파일 시스템에 결과가 저장
+
+//Top 5주소의 JSON파일 형식 저장
+topByAddressSQL.write.format("json").save("/sparkdata/sfpd/output")
+
+
+============== SFPD Top 5 주소 - JSON 읽기 ==============
+
+// Top 5 주소의 JSON 파일 형식 읽기
+val topByAddress5 = spark.read.json("/sparkdata/sfpd/output")
+topByAddress5.show()
+
+
+============== SFPD Top 5 지구대 - 스칼라 ==============
+
+// 사건 Top 5 지구대
+val incByDist = sfpdDS.groupBy("pddistrict").count.sort($"count".desc)
+incByDist.show(5)
+
+
+============== SFPD Top 5 지구대 - SQL ==============
+
+// 사건 Top 5 지구대 - SQL
+val incByDistSQL = spark.sql("SELECT pddistrict, count(incidentnum) AS inccount FROM sfpd GROUP BY pddistrict ORDER BY inccount DESC LIMIT 5")
+incByDistSQL.show
+
+
+============== SFPD Top 10 사건 해결 - 스칼라 ==============
+
+// Top 10 사건 해결 - 스칼라
+val top10Res = sfpdDS.groupBy("resolution").count.sort($"count".desc)
+top10Res.show(10)
+
+
+============== SFPD Top 10 사건 해결 - SQL ==============
+
+// Top 10 사건 해결 - SQL
+val top10ResSQL = spark.sql("SELECT resolution, count(incidentnum) AS inccount FROM sfpd GROUP BY resolution ORDER BY inccount DESC LIMIT 10")
+top10ResSQL.show
+
+
+============== SFPD Top 10 사건 해결 - 제플린 차트 ==============
+
+%sql SELECT resolution, count(incidentnum) AS inccount FROM sfpd GROUP BY resolution ORDER BY inccount DESC LIMIT 10
+
+
+============== SFPD Top 3 범죄 유형 - 스칼라 ==============
+
+// Top 3 범죄 유형 - 스칼라
+val top3Cat = sfpdDS.groupBy("category").count.sort($"count".desc).show(3)
+
+
+============== SFPD Top 3 범죄 유형 - SQL ==============
+
+// Top 3 범죄 유형 - SQL
+val top3CatSQL=spark.sql("SELECT category, count(incidentnum) AS inccount FROM sfpd GROUP BY category ORDER BY inccount DESC LIMIT 3")
+top3CatSQL.show
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------
+///// 온라인 경매 데이터 세트 생성
+// 클래스 임포트
+import spark.implicits._
+
+// 케이스 클래스 정의
+case class Auctions(aucid:String, bid:Double, bidtime:Double, bidder:String, bidrate:Int, openbid:Double, price:Double, itemtype:String, dtl:Int)
+
+// 데이터 적재 후 데이터 세트 생성
+val auctionsDS = spark.read.option("inferSchema",true).csv("/sparkdata/auction/auctiondata.csv").toDF("aucid", "bid", "bidtime", "bidder", "bidrate", "openbid", "price", "itemtype", "dtl").as[Auctions]
+
+//스키마 프린트
+auctionsDS.printSchema()	
+
+// 데이터 세트를 View로 등록
+auctionsDS.createOrReplaceTempView("auctions")
+
+-------------------------------------------------------------------------------------------------------------------
+// 경매 상품 판매량
+val totalauctions = auctionsDS.select("aucid").distinct.count()
+
+// 경매 상품 유형
+val itemtypes = auctionsDS.select("itemtype").distinct.count()
+
+// 상품 유형 당 응찰자 수
+auctionsDS.groupBy("itemtype").count().show()
+
+// 상품 유형 당 응찰자 수
+auctionsDS.groupBy("aucid").count().show()
+
+// 경매 당 최대, 최소, 평균 응찰자 수
+auctionsDS.groupBy("aucid").count.agg(min("count"),avg("count"),max("count")).show()
+
+//상품 유형당 최대, 최소, 평균 입찰 가격
+auctionsDS.groupBy("itemtype", "aucid").agg(min("bid"),max("bid"),avg("bid")).show()
+
+// 낙찰가가 200을 넘는 경매의 수
+auctionsDS.filter(auctionsDS("price")>200).count()
+
+// xbox의 모든 경매에 대해 기본 통계
+val xboxes = spark.sql("SELECT aucid,itemtype,bid,price,openbid FROM auctions WHERE itemtype='xbox'")
+
+xboxes.describe("price").show()
+xboxes.describe("bid").show()
+xboxes.describe("price","bid").show()
+
+
+
+
+
+
+
+
+
+
+
+
+============== 텀프 데이터 세트 정의 ==============
+
+import spark.implicits._
+import org.apache.spark.sql.types._
+
+val sfpdSchema = new StructType(Array(
+    new StructField("incidentnum", StringType, true),
+    new StructField("category", StringType, true),
+    new StructField("description", StringType, true),
+    new StructField("dayofweek", StringType, true),
+    new StructField("date", StringType, true),
+    new StructField("time", StringType, true),
+    new StructField("pddistrict", StringType, true),
+    new StructField("resolution", StringType, true),
+    new StructField("address", StringType, true),
+    new StructField("X", FloatType, true),
+    new StructField("Y", FloatType, true),
+    new StructField("pdid", StringType, true)
+    ))
+
+val sfpdDF = spark.read.format("csv").schema(sfpdSchema).load("/sparkdata/sfpd/sfpd.csv").toDF("incidentnum", "category", "description", "dayofweek", "date", "time", "pddistrict", "resolution", "address", "X", "Y", "pdid")
+
+case class Incidents(incidentnum:String, category:String, description:String, dayofweek:String, date:String, time:String, pddistrict:String, resolution:String, address:String, X:Double, Y:Double, pdid:String)
+val sfpdDS = sfpdDF.as[Incidents]
+sfpdDS.printSchema()
+
+sfpdDS.createTempView("sfpd")
