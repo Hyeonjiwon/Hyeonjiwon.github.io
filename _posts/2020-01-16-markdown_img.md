@@ -1,5 +1,5 @@
 ---
-title: '[Blog] Git 블로그 이미지 업로드' 
+title: '[Blog] GitHub Pages 블로그 이미지 업로드' 
 excerpt: 마크다운 문법으로 이미지 업로드 하기
 categories:
     - Blog
