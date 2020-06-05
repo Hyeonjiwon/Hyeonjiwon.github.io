@@ -102,7 +102,7 @@ analytics:
   provider               : "google" # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          : "UA-168677213-1"
-    anonymize_ip         : false # true, false (default)
+    anonymize_ip         : fasle # true, false (default)
 
 
 # Site Author
