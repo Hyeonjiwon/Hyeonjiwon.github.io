@@ -309,28 +309,44 @@ xboxes.describe("price","bid").show()
 
 ============== 텀프 데이터 세트 정의 ==============
 
+Date
+Jurisdiction
+Area
+Type 
+Causes
+Weather 
+Accident ship
+Rescue 
+Injured
+Death
+Missing 
+location
+Latitude
+Longitude 
+Ship
+Type
+
+
 import spark.implicits._
-import org.apache.spark.sql.types._
 
-val sfpdSchema = new StructType(Array(
-    new StructField("incidentnum", StringType, true),
-    new StructField("category", StringType, true),
-    new StructField("description", StringType, true),
-    new StructField("dayofweek", StringType, true),
-    new StructField("date", StringType, true),
-    new StructField("time", StringType, true),
-    new StructField("pddistrict", StringType, true),
-    new StructField("resolution", StringType, true),
-    new StructField("address", StringType, true),
-    new StructField("X", FloatType, true),
-    new StructField("Y", FloatType, true),
-    new StructField("pdid", StringType, true)
-    ))
+case class Accident(
+    date: String,
+    jurisdiction: String,
+    area: String,
+    accident_type: String,
+    causes: String,
+    weather: String,
+    accident_ship: String,
+    rescue: String,
+    injured: String,   
+    death: String,
+    missing: String,
+    location: String,
+    latitude: String,    
+    longitude: String,
+    ship_type: String
+    )
 
-val sfpdDF = spark.read.format("csv").schema(sfpdSchema).load("/sparkdata/sfpd/sfpd.csv").toDF("incidentnum", "category", "description", "dayofweek", "date", "time", "pddistrict", "resolution", "address", "X", "Y", "pdid")
+val accidentDF = spark.read.option("inferSchema",true).csv("/termdata/sea/Sea_Incident.csv").toDF("date", "jurisdiction", "area", "accident_type", "causes", "weather", "accident_ship", "rescue", "injured", "death", "missing", "location", "latitude", "longitude", "ship_type")
 
-case class Incidents(incidentnum:String, category:String, description:String, dayofweek:String, date:String, time:String, pddistrict:String, resolution:String, address:String, X:Double, Y:Double, pdid:String)
-val sfpdDS = sfpdDF.as[Incidents]
-sfpdDS.printSchema()
-
-sfpdDS.createTempView("sfpd")
+val accidentDS= accidentDF.as[Accident]

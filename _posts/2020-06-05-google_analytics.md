@@ -59,4 +59,5 @@ analytics:
     anonymize_ip         : fasle 
 ```
 
-위의 내용과 같이 바꾸어 주었다면 commit과 push를 해주면 됩니다.
+위의 내용과 같이 바꾸어 주었다면 commit과
+ push를 해주면 됩니다.
