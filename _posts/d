@@ -298,13 +298,99 @@ xboxes.describe("price","bid").show()
 
 
 
+============== 데이터 세트 연산 2 ==============
 
+import spark.implicits._
 
+case class Incidents(incidentnum:String, category:String, description:String, dayofweek:String , date:String , time:String , pddistrict:String,
+resolution:String,X:Double,Y:Double,pdid:String)
 
+// 데이터세트 정의
+val sfpdDS = spark.read.option("inferSchema",true).csv("/sparkdata/sfpd/sfpd.csv").toDF("incidentnum","category","description","dayofweek","date","time","pddistrict","resolution","address","X","Y","pdid").as[Incidents]
 
+// 데이터세트 캐싱
+sfpdDS.cache()
 
+// 변환 정의
+val categoryDS = sfpdDS.groupBy("category")
 
+// 액션 적용
+categoryDS.count.collect
+categoryDS.count.collect
 
+// 데이터세트 캐싱 해제
+sfpdDS.unpersist()
+
+-----------------------------------------------------------------------------------------------
+
+//// 데이터세트 연산 UDF 
+// UDF 함수 정의 
+val getyear = udf((s: String) => {
+    val lastS = s.substring(s.lastIndexOf('/')+1)
+    lastS
+})
+
+// 연도 별로 사건 수 조회
+val yy = sfpdDS.groupBy(getyear(sfpdDS("date"))).count
+
+yy.show
+
+-----------------------------------------------------------------------------------------------
+
+//// SQL 질의 UDF
+// 데이터세트를 뷰(view)로 등록 
+sfpdDS.createOrReplaceTempView("sfpd")
+
+// UDF 함수 정의
+def get_year(s:String):String = {
+    val year = s.substring(s.lastIndexOf('/')+1)
+    year
+}
+
+// UDF 함수 등록
+spark.udf.register("getYear",get_year(_:String))
+
+// SQL 질의 적용
+val numIncByYear = spark.sql("SELECT getYear(date), count(incidentnum) AS countbyyear FROM sfpd GROUP BY getYear(date) ORDER BY countbyyear DESC")
+
+numIncByYear.show
+
+-----------------------------------------------------------------------------------------------
+
+//// SQL 질의 UDF, 인라인 함수(inline function)
+// UDF 인라인 함수 등록
+spark.udf.register("Getyear", (s:String) =>
+    {s.substring(s.lastIndexOf('/')+ 1)})
+
+// SQL 질의 적용
+val numIncByYear = spark.sql("SELECT GetYear(date), count(incidentnum) AS countbyyear FROM sfpd GROUP BY GetYear(date) ORDER BY countbyyear DESC")
+
+numIncByYear.show
+
+-----------------------------------------------------------------------------------------------
+
+//// 2014년도 사건 조사
+val inc2014 = spark.sql("SELECT category,address,resolution,date FROM sfpd WHERE getyear(date)='14'")
+
+// 2014년도 10개의 사건만 표시
+inc2014.collect.take(10)
+
+// 2014년도 모든 사건 표시
+inc2014.collect.foreach(println)
+
+-----------------------------------------------------------------------------------------------
+
+//// 2015년도 공공기물 파손 범죄 조사
+val van2015 = spark.sql("SELECT category,address,resolution,date FROM sfpd WHERE getyear(date)='15' AND category='VANDALISM'")
+
+// 2015년도 공공기물 파손 범죄 총 건수 표시
+van2015.count
+
+// 2015년도 공공기물 파손 범죄 표시
+van2015.collect.foreach(println)
+
+// 2015년도 공공기물 파손 범죄의 JSON 파일 형식 저장
+van2015.write.format("json").save("/sparkdata/sfpd/output1")
 
 
 ============== 텀프 데이터 세트 정의 ==============
