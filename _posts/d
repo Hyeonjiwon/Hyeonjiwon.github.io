@@ -412,7 +412,6 @@ Longitude
 Ship
 Type
 
-
 import spark.implicits._
 
 case class Accident(
@@ -436,3 +435,97 @@ case class Accident(
 val accidentDF = spark.read.option("inferSchema",true).csv("/termdata/sea/Sea_Incident.csv").toDF("date", "jurisdiction", "area", "accident_type", "causes", "weather", "accident_ship", "rescue", "injured", "death", "missing", "location", "latitude", "longitude", "ship_type")
 
 val accidentDS= accidentDF.as[Accident]
+
+
+-----------------------------------------------------------------------------------------------
+
+//// 데이터세트 연산 UDF 
+// UDF 함수 정의 
+val getYear = udf((s: String) => {
+    val year = s.substring(s.indexOf('-'))
+    year
+})
+
+// 연도 별 사건 수 조회
+val yy = accidentDS.groupBy(getYear(sfpdDS("date"))).count
+yy.show
+
+val getMonth = udf((s: String) => {
+    val month = s.substring(s.indexOf("-"), s.lastIndexOf('-'))
+    month
+})
+
+// 월 별 사건 수 조회
+val mm = accidentDS.groupBy(getyear(accidentDS("date"))).count
+mm.show
+
+val getHour = udf((s: String) => {
+    val hour = s.substring(s.indexOf(" "), s.lastIndexOf(':'))
+    time
+})
+
+// 시간 별 사건 수 조회
+val hh = accidentDS.groupBy(getyear(accidentDS("date"))).count
+hh.show
+
+-----------------------------------------------------------------------------------------------
+
+// SQL 질의 UDF 
+// 데이터세트를 뷰로 등록
+accidentDS.createOrReplaceTempView("accident")
+
+// 년도 추출 UDF 정의 
+def get_year(s: String):String = {
+    val year = s.substring(0, s.indexOf('-'))
+    year
+}
+
+// UDF 함수 등록
+spark.udf.register("getYear", get_year(_:String))
+
+// SQL 질의 적용
+val numByYear = spark.sql("SELECT getYear(date), count(num) AS countbyyear FROM accident GROUP BY getYear(date) ORDER BY countbyyear DESC")
+
+numByYear.show
+
+%sql SELECT getYear(date), count(num) AS countbyyear FROM accident GROUP BY getYear(date) ORDER BY countbyyear DESC
+
+//// SQL 질의 UDF, 인라인 함수(inline function)
+// UDF 인라인 함수 등록
+spark.udf.register("Getyear", (s:String) => {
+        s.substring(0, s.indexOf('-'))
+    })
+
+// SQL 질의 적용
+val numByYear = spark.sql("SELECT GetYear(date), count(num) AS countbyyear FROM accident GROUP BY GetYear(date) ORDER BY countbyyear DESC")
+
+numIncByYear.show
+
+-----------------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------------
+
+//// 2014년도 사건 조사
+val inc2014 = spark.sql("SELECT category,address,resolution,date FROM sfpd WHERE getyear(date)='14'")
+
+// 2014년도 10개의 사건만 표시
+inc2014.collect.take(10)
+
+// 2014년도 모든 사건 표시
+inc2014.collect.foreach(println)
+
+-----------------------------------------------------------------------------------------------
+
+//// 2015년도 공공기물 파손 범죄 조사
+val van2015 = spark.sql("SELECT category,address,resolution,date FROM sfpd WHERE getyear(date)='15' AND category='VANDALISM'")
+
+// 2015년도 공공기물 파손 범죄 총 건수 표시
+van2015.count
+
+// 2015년도 공공기물 파손 범죄 표시
+van2015.collect.foreach(println)
+
+// 2015년도 공공기물 파손 범죄의 JSON 파일 형식 저장
+van2015.write.format("json").save("/sparkdata/sfpd/output1")
