@@ -24,7 +24,7 @@ padding: 5px;
 
 ## Career & Activities
  - Undergraduate resercher at Embedded System LAB (2018.06 ~ )
- - LikeLion 7th @SCH (2019.03 ~ )
+ - LikeLion 7th @SCH (2019.03 ~ 2019.12)
 
 ## Current Interest
  * Bigdata
