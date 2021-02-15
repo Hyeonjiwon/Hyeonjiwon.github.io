@@ -27,8 +27,9 @@ padding: 5px;
  - LikeLion 7th @SCH (2019.03 ~ )
 
 ## Current Interest
- * Artifitial Intelligence
- * Machine Learning
+ * Bigdata
+ * Android Applicaiton 
+ * Web Developmetn
  * Internet of Things
 
 ## Contact
