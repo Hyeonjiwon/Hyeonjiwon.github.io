@@ -59,6 +59,8 @@ zsh: command not found: brew
 
 라고 나왔습니다. 원인은 저는 M1 Mac을 사용하기 때문이였습니다. 
 
+<br>
+
 - M1 Mac 에서 HomewBrew 설치하는 방법
 
 Finder > 터미널 정보 가져오기 > Rosetta를 사용하여 열기 활성화 
@@ -73,11 +75,11 @@ Finder > 터미널 정보 가져오기 > Rosetta를 사용하여 열기 활성�
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+명령어로 잘 설치 되었는지 확인을 해주었습니다. 
+
 ```
 brew help
 ```
-
-명령어로 잘 설치 되었는지 확인을 해주었습니다. 
 
 <img width="682" alt="7" src="https://user-images.githubusercontent.com/47733530/108680314-11f44300-7531-11eb-95c3-746b027df0f2.png">
 
