@@ -42,7 +42,6 @@ command + space 를 눌러 Spotlight 검색 창에 terminal 또는 터미널을 
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 ```
 
 해당 문장을 터미널에 붙여 넣으면 Homebrew가 설치 됩니다.
@@ -72,7 +71,6 @@ Finder > 터미널 정보 가져오기 > Rosetta를 사용하여 열기 활성�
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 ```
 
 ```
