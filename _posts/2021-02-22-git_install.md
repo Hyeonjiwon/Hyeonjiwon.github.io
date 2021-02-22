@@ -65,9 +65,9 @@ zsh: command not found: brew
 
 Finder > 터미널 정보 가져오기 > Rosetta를 사용하여 열기 활성화 
 
-<img width="50%" height="50%" alt="5" src="https://user-images.githubusercontent.com/47733530/108679876-7d89e080-7530-11eb-82aa-8faf56e9101b.png">
+<img alt="5" src="https://user-images.githubusercontent.com/47733530/108679876-7d89e080-7530-11eb-82aa-8faf56e9101b.png">
 
-<img width="50%" height="50%" alt="6" src="https://user-images.githubusercontent.com/47733530/108679888-8084d100-7530-11eb-8c11-c85319ca22ce.png">
+<img alt="6" src="https://user-images.githubusercontent.com/47733530/108679888-8084d100-7530-11eb-8c11-c85319ca22ce.png">
 
 설정한 터미널을 열고 아래 명령어를 입력하여 Homebrew 설치하면 됩니다. 
 
