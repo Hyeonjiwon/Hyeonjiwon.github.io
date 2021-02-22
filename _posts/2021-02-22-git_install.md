@@ -79,7 +79,10 @@ Finder > 터미널 정보 가져오기 > Rosetta를 사용하여 열기 활성�
 brew help
 ```
 
-잘 설치 되었는지 확인을 해주었습니다. 
+명령어로 잘 설치 되었는지 확인을 해주었습니다. 
+
+<img width="682" alt="7" src="https://user-images.githubusercontent.com/47733530/108680314-11f44300-7531-11eb-95c3-746b027df0f2.png">
+
 
 ## Git 설치
 
@@ -93,10 +96,10 @@ brew install git
 
 을 입력해주면 git 설치가 완료됩니다.
 
-
-
 ``` 
 git --version
 ```
 
 명령어를 입력하여 잘 설치 되었는지 깃 버전을 확인합니다. 
+
+<img width="682" alt="8" src="https://user-images.githubusercontent.com/47733530/108680569-5f70b000-7531-11eb-8b74-8adb02546e41.png">
