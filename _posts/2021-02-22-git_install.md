@@ -103,3 +103,26 @@ git --version
 명령어를 입력하여 잘 설치 되었는지 깃 버전을 확인합니다. 
 
 <img width="682" alt="8" src="https://user-images.githubusercontent.com/47733530/108680569-5f70b000-7531-11eb-8b74-8adb02546e41.png">
+
+
+## Git bash 사용하기 
+
+- 오류발생 
+
+```
+zsh: command not found: code 
+``` 
+
+<img width="682" alt="9" src="https://user-images.githubusercontent.com/47733530/109114517-1fa00780-7781-11eb-9be9-f5454506ecd8.png">
+
+- 해결방법
+
+VS Code > Command Palette (command + shift + p) > install 'code' command in PATH
+
+<img width="555" alt="10" src="https://user-images.githubusercontent.com/47733530/109114530-23338e80-7781-11eb-9254-5b6e0ddd129c.png">
+
+터미널에서 code . 으로 확인
+
+<img width="1016" alt="11" src="https://user-images.githubusercontent.com/47733530/109114909-a359f400-7781-11eb-8869-35c75f8d30d9.png">
+
+
