@@ -125,6 +125,6 @@ zsh: command not found: code
 
 <img width="555" alt="10" src="https://user-images.githubusercontent.com/47733530/109114530-23338e80-7781-11eb-9254-5b6e0ddd129c.png">
 
-4. 터미널에서 code . 으로 확인
+<p> 4. 터미널에서 code . 으로 확인 </p>
 
 <img width="1016" alt="11" src="https://user-images.githubusercontent.com/47733530/109114909-a359f400-7781-11eb-8869-35c75f8d30d9.png">
