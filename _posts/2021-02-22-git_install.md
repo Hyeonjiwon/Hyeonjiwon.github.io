@@ -117,14 +117,14 @@ zsh: command not found: code
 
 - 해결방법
 
-<p> 1.  VS Code </p>
+    <p> 1.  VS Code </p>
 
-<p> 2. Command Palette (command + shift + p) </p>
+    <p> 2. Command Palette (command + shift + p) </p>
 
-<p> 3. install 'code' command in PATH </p>
+    <p> 3. install 'code' command in PATH </p>
 
-<img width="555" alt="10" src="https://user-images.githubusercontent.com/47733530/109114530-23338e80-7781-11eb-9254-5b6e0ddd129c.png">
+    <img width="555" alt="10" src="https://user-images.githubusercontent.com/47733530/109114530-23338e80-7781-11eb-9254-5b6e0ddd129c.png">
 
-<p> 4. 터미널에서 code . 으로 확인 </p>
+    <p> 4. 터미널에서 code . 으로 확인 </p>
 
-<img width="1016" alt="11" src="https://user-images.githubusercontent.com/47733530/109114909-a359f400-7781-11eb-8869-35c75f8d30d9.png">
+    <img width="1016" alt="11" src="https://user-images.githubusercontent.com/47733530/109114909-a359f400-7781-11eb-8869-35c75f8d30d9.png">
