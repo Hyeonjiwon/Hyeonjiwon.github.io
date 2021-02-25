@@ -19,7 +19,7 @@ toc_sticky: true
 ---
 
 
-## 터미널 열기
+## Mac OS 터미널 열기
 
 - Launchpad로 실행
 
@@ -38,7 +38,7 @@ command + space 를 눌러 Spotlight 검색 창에 terminal 또는 터미널을 
 
 맥OS 에 git을 설치하기에 앞서 Homebrew를 설치 합니다. Homebrew는 맥 OS 용 패키지 관리자 입니다. 
 
-[Homebrew](https://brew.sh/)에 들어가 보면 설치 방법이 있습니다.
+[Homebrew](https://brew.sh/)에 들어가면 설치 방법이 있습니다.
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -105,7 +105,7 @@ git --version
 <img width="682" alt="8" src="https://user-images.githubusercontent.com/47733530/108680569-5f70b000-7531-11eb-8b74-8adb02546e41.png">
 
 
-## Git bash 사용하기 
+## Mac OS 에서 Git bash 사용하기 
 
 - 오류발생 
 
