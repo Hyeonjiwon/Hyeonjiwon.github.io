@@ -117,11 +117,11 @@ zsh: command not found: code
 
 - 해결방법
 
-1.  VS Code 
+<p> 1.  VS Code </p>
 
-2. Command Palette (command + shift + p) 
+<p> 2. Command Palette (command + shift + p) </p>
 
-3. install 'code' command in PATH
+<p> 3. install 'code' command in PATH </p>
 
 <img width="555" alt="10" src="https://user-images.githubusercontent.com/47733530/109114530-23338e80-7781-11eb-9254-5b6e0ddd129c.png">
 
