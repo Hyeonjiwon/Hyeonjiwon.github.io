@@ -1,6 +1,6 @@
 ---
 title: '[Etc] Mac OS 환경에서 Git 설치' 
-excerpt: 'Git 설치와 Homebrow 설치'
+excerpt: 'M1 Mac OS 환경에서 Homebrow 와 Git 설치'
 categories:
     - Etc
 
