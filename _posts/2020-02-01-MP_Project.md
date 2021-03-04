@@ -117,4 +117,4 @@ __Sensor & Module Control__
 
 [![결과](https://www.youtube.com/watch?v=_eKLK-5hce8/1.jpg)](https://www.youtube.com/watch?v=_eKLK-5hce8)
 
-▲ 결과 영상 클릭
+▲ 클릭
