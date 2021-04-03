@@ -49,9 +49,8 @@ __입출력 예__
 
 __풀이__
 
-```java
-{ % raw % }
-
+<pre>
+<code>
 import java.util.*;
 
 class Solution {
@@ -85,9 +84,11 @@ class Solution {
         }
     }
 }
-{ % endraw % }
-```
+</pre>
+</code>
+
 <br>
+
 
 ## 완주하지 못한 선수
 
@@ -114,10 +115,10 @@ __입출력 예__
 | ["marina", "josipa", "nikola", "vinko", "filipa"] | ["josipa", "filipa", "marina", "nikola"] | "vinko" |
 | ["mislav", "stanko", "mislav", "ana"] | ["stanko", "ana", "mislav"] | "mislav" |
 
+
 __풀이__
 
 ```java
-{ % raw % }
 import java.util.*;
 
 class Solution {
@@ -156,5 +157,4 @@ class Solution {
         System.out.println(solution(participant, completion)); 
     }
 }
-{ % endraw % }
 ```
