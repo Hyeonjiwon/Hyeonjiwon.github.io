@@ -50,6 +50,7 @@ __입출력 예__
 __풀이__
 
 ```java
+{ % raw % }
 
 import java.util.*;
 
@@ -84,6 +85,7 @@ class Solution {
         }
     }
 }
+{ % endraw % }
 ```
 <br>
 
@@ -115,6 +117,7 @@ __입출력 예__
 __풀이__
 
 ```java
+{ % raw % }
 import java.util.*;
 
 class Solution {
@@ -153,4 +156,5 @@ class Solution {
         System.out.println(solution(participant, completion)); 
     }
 }
+{ % endraw % }
 ```
