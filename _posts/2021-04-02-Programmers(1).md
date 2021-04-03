@@ -49,8 +49,7 @@ __입출력 예__
 
 __풀이__
 
-<pre>
-<code>
+```java
 import java.util.*;
 
 class Solution {
@@ -75,7 +74,7 @@ class Solution {
     public static void main(String[] args) { 
         // test case
         int[] array = {1, 5, 2, 6, 3, 7, 4};
-        int[][] commands = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}}; 
+        int[][] commands = { % raw % }{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}}{ % endraw % }; 
 
         int[] result = solution(array, commands);
 
@@ -84,11 +83,9 @@ class Solution {
         }
     }
 }
-</pre>
-</code>
 
+```
 <br>
-
 
 ## 완주하지 못한 선수
 
@@ -114,7 +111,6 @@ __입출력 예__
 | ["leo", "kiki", "eden"] | ["eden", "kiki"] | "leo" |
 | ["marina", "josipa", "nikola", "vinko", "filipa"] | ["josipa", "filipa", "marina", "nikola"] | "vinko" |
 | ["mislav", "stanko", "mislav", "ana"] | ["stanko", "ana", "mislav"] | "mislav" |
-
 
 __풀이__
 
