@@ -129,26 +129,22 @@ class Solution {
         String answer = "";
         HashMap<String, Integer> hm = new HashMap<String, Integer>();
 
-        // key 중복 x, val 중복 o
         for (String name : participant) {
             hm.put(name, hm.getOrDefault(name, 0) + 1);
         }
-
-        //System.out.println("hashh" + hm);
 
         for (String name : completion) {
             if(hm.containsKey(name)){
                 hm.put(name, hm.get(name) - 1);
             }
         }
-        //System.out.println("hashh hhh " + hm);
 
         for (String name : hm.keySet()) {
             if(hm.get(name) == 1) {
                 answer = name;
             }
         }
-        //System.out.println("answer " + answer);
+
         return answer;
     }
 
