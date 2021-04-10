@@ -405,7 +405,7 @@ __풀이__
 class Solution {
     public static String solution(int n) {
         String answer = "";
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i <= (n/2); i++) {
             sb.append("수박");
