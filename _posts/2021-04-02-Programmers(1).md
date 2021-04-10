@@ -313,3 +313,158 @@ class Solution {
 ```
 
 <br>
+
+## 수박수박수박수박수박수?
+## 2016년
+
+__문제__
+
+2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요? 두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요. 요일의 이름은 일요일부터 토요일까지 각각  [ SUN, MON, TUE, WED, THU, FRI, SAT ]
+
+입니다. 예를 들어 a=5, b=24라면 5월 24일은 화요일이므로 문자열 "TUE"를 반환하세요.
+
+<br>
+
+__제한사항__
+
+- 2016년은 윤년입니다.
+- 2016년 a월 b일은 실제로 있는 날입니다. (13월 26일이나 2월 45일같은 날짜는 주어지지 않습니다)
+
+<br>
+
+__입출력 예__
+
+| a | b | result |
+|---|---|---|
+| 5 | 24 | "TUE" |
+
+<br>
+
+__풀이__
+
+```java
+class Solution {
+    
+    public static String solution(int a, int b) {
+        String answer = "";
+        
+        int[] month = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        String[] dayOfweek = { "THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED" };
+
+        int d = 0, result = 0;
+
+        for (int i = 0; i < (a -1); i++) {
+            d = d + month[i];
+       }
+
+        result = ((d + b) % 7);
+
+        answer = dayOfweek[result];
+
+        return answer;
+    }
+
+    public static void main(String[] args) { 
+        // test case
+        int a = 6;
+        int b = 10;
+        
+        System.out.println(solution(a, b)); 
+    }
+}
+```
+
+<br>
+
+## 수박수박수박수박수박수?
+
+__문제__
+
+길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, solution을 완성하세요. 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
+
+<br>
+
+__제한사항__
+
+- n은 길이 10,000이하인 자연수입니다.
+
+<br>
+
+__입출력 예__
+
+| n | return |
+|---|--------|
+| 3 | "수박수" |
+| 4 | "수박수박" |
+
+<br>
+
+__풀이__
+
+```java
+class Solution {
+    public static String solution(int n) {
+        String answer = "";
+        StringBuffer sb = new StringBuffer();
+
+        for (int i = 0; i <= (n/2); i++) {
+            sb.append("수박");
+        }
+        answer = sb.substring(0, n);
+        
+        return answer;
+
+        /*
+        // String 객체는 내부적으로 char 배열에 데이터를 저장하여 보관
+        String str = new String(new char[(n/2)+1]);
+        
+        // char 배열 초기값 = "\u0000"
+        str = str.replace("\u0000", "수박");
+        answer = str.substring(0, n);
+        */     
+    }
+
+    public static void main(String[] args) { 
+        // test case
+        int n = 3;
+
+        System.out.println(solution(n));
+    }
+}
+```
+
+<br>
+
+## 
+
+__문제__
+
+
+
+<br>
+
+__제한사항__
+
+- 
+
+<br>
+
+__입출력 예__
+
+| a | b | result |
+|---|---|---|
+| 5 | 24 | "TUE" |
+
+<br>
+
+__풀이__
+
+```java
+
+```
+
+<br>
+
+## 참고
+
+> [출처: 프로그래머스 코딩 테스트 연습](https://programmers.co.kr/learn/challenges)
