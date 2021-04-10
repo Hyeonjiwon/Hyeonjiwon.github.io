@@ -31,8 +31,6 @@ __문제__
 
 배열 array, [i, j, k]를 원소로 가진 2차원 배열 commands가 매개변수로 주어질 때, commands의 모든 원소에 대해 앞서 설명한 연산을 적용했을 때 나온 결과를 배열에 담아 return 하도록 solution 함수를 작성해주세요.
 
-<br>
-
 __제한사항__
 
 - array의 길이는 1 이상 100 이하입니다.
@@ -40,15 +38,11 @@ __제한사항__
 - commands의 길이는 1 이상 50 이하입니다.
 - commands의 각 원소는 길이가 3입니다.
 
-<br>
-
 __입출력 예__
 
 | array | commands | return |
 |---|---|---|
 | [1, 5, 2, 6, 3, 7, 4] | [[2, 5, 3], [4, 4, 1], [1, 7, 3]] | [5, 6, 3] |
-
-<br>
 
 __풀이__
 
@@ -81,8 +75,8 @@ class Solution {
 
         int[] result = solution(array, commands);
 
-        for (int i = 0; i < commands.length; i++) {     
-            System.out.println(result[i]); 
+        for (int i: result) {     
+            System.out.println(i); 
         }
     }
 }
@@ -98,16 +92,12 @@ __문제__
 
 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.
 
-<br>
-
 __제한사항__
 
 - 마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다.
 - completion의 길이는 participant의 길이보다 1 작습니다.
 - 참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.
 - 참가자 중에는 동명이인이 있을 수 있습니다.
-
-<br>
 
 __입출력 예__
 
@@ -116,8 +106,6 @@ __입출력 예__
 | ["leo", "kiki", "eden"] | ["eden", "kiki"] | "leo" |
 | ["marina", "josipa", "nikola", "vinko", "filipa"] | ["josipa", "filipa", "marina", "nikola"] | "vinko" |
 | ["mislav", "stanko", "mislav", "ana"] | ["stanko", "ana", "mislav"] | "mislav" |
-
-<br>
 
 __풀이__
 
@@ -168,22 +156,16 @@ __문제__
 
 입니다. 예를 들어 a=5, b=24라면 5월 24일은 화요일이므로 문자열 "TUE"를 반환하세요.
 
-<br>
-
 __제한사항__
 
 - 2016년은 윤년입니다.
 - 2016년 a월 b일은 실제로 있는 날입니다. (13월 26일이나 2월 45일같은 날짜는 주어지지 않습니다)
-
-<br>
 
 __입출력 예__
 
 | a | b | result |
 |---|---|---|
 | 5 | 24 | "TUE" |
-
-<br>
 
 __풀이__
 
@@ -192,7 +174,7 @@ class Solution {
     
     public static String solution(int a, int b) {
         String answer = "";
-        
+
         int[] month = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         String[] dayOfweek = { "THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED" };
 
@@ -203,7 +185,6 @@ class Solution {
        }
 
         result = ((d + b) % 7);
-
         answer = dayOfweek[result];
 
         return answer;
@@ -233,15 +214,11 @@ __문제__
 
 1번 문제부터 마지막 문제까지의 정답이 순서대로 들은 배열 answers가 주어졌을 때, 가장 많은 문제를 맞힌 사람이 누구인지 배열에 담아 return 하도록 solution 함수를 작성해주세요.
 
-<br>
-
 __제한사항__
 
 - 시험은 최대 10,000 문제로 구성되어있습니다.
 - 문제의 정답은 1, 2, 3, 4, 5중 하나입니다.
 - 가장 높은 점수를 받은 사람이 여럿일 경우, return하는 값을 오름차순 정렬해주세요.
-
-<br>
 
 __입출력 예__
 
@@ -249,8 +226,6 @@ __입출력 예__
 |---|---|
 | [1,2,3,4,5] | [1] |
 | [1,3,2,4,2] | [1,2,3] |
-
-<br>
 
 __풀이__
 
@@ -314,7 +289,6 @@ class Solution {
 
 <br>
 
-## 수박수박수박수박수박수?
 ## 2016년
 
 __문제__
@@ -323,22 +297,16 @@ __문제__
 
 입니다. 예를 들어 a=5, b=24라면 5월 24일은 화요일이므로 문자열 "TUE"를 반환하세요.
 
-<br>
-
 __제한사항__
 
 - 2016년은 윤년입니다.
 - 2016년 a월 b일은 실제로 있는 날입니다. (13월 26일이나 2월 45일같은 날짜는 주어지지 않습니다)
-
-<br>
 
 __입출력 예__
 
 | a | b | result |
 |---|---|---|
 | 5 | 24 | "TUE" |
-
-<br>
 
 __풀이__
 
@@ -347,10 +315,9 @@ class Solution {
     
     public static String solution(int a, int b) {
         String answer = "";
-        
+
         int[] month = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         String[] dayOfweek = { "THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED" };
-
         int d = 0, result = 0;
 
         for (int i = 0; i < (a -1); i++) {
@@ -358,7 +325,6 @@ class Solution {
        }
 
         result = ((d + b) % 7);
-
         answer = dayOfweek[result];
 
         return answer;
@@ -382,13 +348,9 @@ __문제__
 
 길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, solution을 완성하세요. 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
 
-<br>
-
 __제한사항__
 
 - n은 길이 10,000이하인 자연수입니다.
-
-<br>
 
 __입출력 예__
 
@@ -397,31 +359,22 @@ __입출력 예__
 | 3 | "수박수" |
 | 4 | "수박수박" |
 
-<br>
-
 __풀이__
 
 ```java
 class Solution {
     public static String solution(int n) {
         String answer = "";
+
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i <= (n/2); i++) {
             sb.append("수박");
         }
+        
         answer = sb.substring(0, n);
         
         return answer;
-
-        /*
-        // String 객체는 내부적으로 char 배열에 데이터를 저장하여 보관
-        String str = new String(new char[(n/2)+1]);
-        
-        // char 배열 초기값 = "\u0000"
-        str = str.replace("\u0000", "수박");
-        answer = str.substring(0, n);
-        */     
     }
 
     public static void main(String[] args) { 
@@ -441,21 +394,14 @@ __문제__
 
 
 
-<br>
-
 __제한사항__
 
 - 
 
-<br>
 
 __입출력 예__
 
-| a | b | result |
-|---|---|---|
-| 5 | 24 | "TUE" |
 
-<br>
 
 __풀이__
 
