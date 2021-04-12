@@ -429,6 +429,70 @@ class Solution {
 }
 ```
 
+<br>
+
+## 자연수 뒤집어 배열로 만들기
+
+__문제__
+
+자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴해주세요. 예를들어 n이 12345이면 [5,4,3,2,1]을 리턴합니다.
+
+__제한사항__
+
+- n은 10,000,000,000이하인 자연수입니다.
+
+__입출력 예__
+
+| n | return |
+|---|--------|
+| 12345 | [5,4,3,2,1] |
+
+__풀이__
+
+```java
+class Solution {
+    public static int[] solution(long n) {
+        int[] answer = {};
+        StringBuilder s = new StringBuilder(String.valueOf(n));
+        String rev = s.reverse().toString();
+
+        answer = new int[rev.length()];
+
+        for (int i = 0; i < rev.length(); i++) {
+             answer[i] = rev.charAt(i) - '0';
+        }
+
+        /** 풀이1 > 속도 3 ** 
+        answer = s.reverse().chars().map(x -> x - '0').toArray(); // 속도가 넘 느림
+        answer = Stream.of(rev.split("")).mapToInt(Integer::parseInt).toArray();
+        */
+
+        /** 풀이 2 > 속도 2 **
+
+        int [] rev = s.reverse().chars().toArray();
+        answer = new int[rev.length];
+        for (int i = 0; i < rev.length; i++) {
+            answer[i] = rev[i] - '0';
+       }
+        */
+
+        return answer;
+    }
+
+    public static void main(String[] args) { 
+        // test case
+        int n = 12345;
+
+        for (int i : solution(n)) {
+            System.out.print(i + " ");
+        }
+    }
+}
+```
+
+<br>
+
+
 ## 참고
 
 > [출처: 프로그래머스 코딩 테스트 연습](https://programmers.co.kr/learn/challenges)
