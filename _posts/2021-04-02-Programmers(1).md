@@ -470,12 +470,20 @@ class Solution {
         */
 
         /** 풀이 2 > 속도 2 **
-
         int [] rev = s.reverse().chars().toArray();
         answer = new int[rev.length];
         for (int i = 0; i < rev.length; i++) {
             answer[i] = rev[i] - '0';
        }
+        */
+
+        /** 풀이 3 **
+        char[] s = new StringBuilder(String.valueOf(n)).reverse().toString().toCharArray();
+        answer = new int[s.length];
+
+        for (int i = 0; i < s.length; i++) {
+             answer[i] = s[i] - '0';
+        }
         */
     }
 
