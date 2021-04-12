@@ -462,6 +462,8 @@ class Solution {
              answer[i] = rev.charAt(i) - '0';
         }
 
+        return answer;
+        
         /** 풀이1 > 속도 3 ** 
         answer = s.reverse().chars().map(x -> x - '0').toArray(); // 속도가 넘 느림
         answer = Stream.of(rev.split("")).mapToInt(Integer::parseInt).toArray();
@@ -475,8 +477,6 @@ class Solution {
             answer[i] = rev[i] - '0';
        }
         */
-
-        return answer;
     }
 
     public static void main(String[] args) { 
