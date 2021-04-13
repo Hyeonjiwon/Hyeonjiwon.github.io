@@ -578,6 +578,7 @@ class Solution {
             answer = answer + i;
         }
         
+        return answer;
         /*
         if (a > b) {
             for (int i = b; i <= a; i++) {
@@ -594,7 +595,6 @@ class Solution {
             answer = answer + i;
         }
         */
-        return answer;
     }
 
     public static void main(String[] args) { 
