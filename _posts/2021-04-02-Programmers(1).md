@@ -1,5 +1,5 @@
 ---
-title: '[Programmers] 코딩테스트 연습' 
+title: '[Programmers] 코딩테스트 연습 Level 1' 
 excerpt: "Level 1"
 categories:
     - Algorithm
@@ -578,7 +578,6 @@ class Solution {
             answer = answer + i;
         }
         
-        return answer;
         /*
         if (a > b) {
             for (int i = b; i <= a; i++) {
