@@ -29,7 +29,7 @@ padding: 5px;
 ## Current Interest
  * Bigdata
  * Android Applicaiton 
- * Web Developmetn
+ * Web Development
  * Internet of Things
 
 ## Contact
