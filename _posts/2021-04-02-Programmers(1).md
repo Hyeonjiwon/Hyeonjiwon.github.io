@@ -722,6 +722,506 @@ class Solution {
 
 <br>
 
+## x만큼 간격이 있는 n개의 숫자
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python
+import time
+start = time.time()  # 시작 시간
+
+def solution(x, n):
+    answer = []
+    tmp = 0
+
+    for i in range(n):
+        tmp = tmp + x
+        answer.append(tmp)
+
+    return answer
+
+def main(): 
+    print(solution(2, 5))
+
+if __name__ == '__main__':
+    main()
+    print("time :", time.time() - start)  # 실행 시간
+```
+
+<br>
+
+ ##  로또의 최고 순위와 최저 순위
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python 
+import time
+start = time.time()  # 시작 시간
+
+def solution(lottos, win_nums):
+    # 배열 길이가 6보다 클 경우
+    if (len(lottos) > 6) or (len(win_nums) > 6):
+        raise Exception('Items exceeds the maximum allowed length of 6')
+
+    else:
+        answer = []
+        # 맞춘 개수 : 순위
+        dict =  {0:6, 1:6, 2:5, 3:4, 4:3, 5:2, 6:1}
+        set_lottos = set(lottos)
+        set_winNum = set(win_nums)
+
+        min = len(set_lottos.intersection(set_winNum)) # 교집합
+        max = min + lottos.count(0) # 0 개수 count
+
+        # max = len(set(lottos) & set(win_nums)) + lottos.count(0)
+        # min = len(set(lottos) & set(win_nums))
+
+        return [dict.get(max, "?"), dict.get(min, "?")] # time : 0.0006847381591796875
+        # return [dict[max], dict[min]] # time : 0.0009970664978027344
+
+"""
+def switch(key):
+    # 맞춘 개수 : 순위
+    answer = {1:6, 2:5, 3:4, 4:3, 5:2, 6:1}.get(key, "?")
+    return answer
+"""
+
+def main():
+    # 민우가 구매한 로또 번호
+    lottos = [44, 1, 0, 0, 31, 25]
+    # 당첨 번호
+    win_nums = [31, 10, 45, 1, 6, 19]
+    
+    print(solution(lottos, win_nums))
+
+
+if __name__ == '__main__':
+    main()
+    print("time :", time.time() - start)  # 실행 시간
+```
+
+<br>
+
+## 신규 아이디 추천
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python
+import time
+start = time.time()  # 시작 시간 저장
+
+import re
+
+def solution(new_id):
+    # 배열 길이
+    if (len(new_id) < 0) or (len(new_id) > 1000):
+        raise Exception('Items exceeds the maximum allowed length')
+
+    # 1
+    new_id = new_id.lower()
+    
+    # 2
+    new_id = re.sub('[^0-9a-z\-_.]', '', new_id)
+
+    # 3
+    new_id = re.sub('[.]{1,}', '.', new_id)
+    
+    # 4
+    if len(new_id) >= 2:
+        if new_id.startswith('.'):
+            new_id = new_id[1:]
+
+    if new_id.endswith('.'):
+        new_id = new_id[:-1]
+
+    # 5
+    if not new_id:
+        new_id = new_id.replace("", "a")
+
+    # 6
+    if len(new_id) > 15:
+        new_id = new_id[:15]
+
+        if new_id.endswith('.'):
+            new_id = new_id[:-1]
+    
+    # 7  
+    #while len(new_id) < 3:
+    #    new_id = new_id + new_id[-1]
+
+    new_id+=new_id[-1]*(3-len(new_id))
+
+    return new_id
+
+def main():
+    id = "...!@BaT#*..y.abcdefghijklm"    
+    print(solution(id))
+
+if __name__ == '__main__':
+    main()
+    print("time :", time.time() - start)  # 실행 시간
+
+```
+
+<br>
+
+## 직사각형 별찍기
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python 
+a, b = map(int, input().strip().split(' '))
+
+for i in range(b):
+    print(('*' * a))
+```
+
+<br>
+
+## 콜라츠 추측
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python
+def solution(num):
+    answer = 0
+
+    while num > 1:
+        if num % 2 == 0:
+            num = num/2
+
+        else:
+            num = (num * 3) + 1
+
+        if (answer <= 500):
+            answer = (answer + 1) 
+    
+        else: 
+            return -1
+        
+    return answer
+
+def main():
+    arr = 1
+    print(solution(arr))
+
+if __name__ == '__main__':
+    main()
+```
+
+<br>
+
+## 평균 구하기  
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python
+import numpy as np
+
+def solution(arr):
+    answer = 0
+    answer = sum(arr)/len(arr)
+    return answer
+
+    # return np.mean(arr) # 속도가 느림
+
+def main():
+    arr = [1, 2, 3, 4]
+
+    print(solution(arr))
+
+if __name__ == '__main__':
+    main()
+```
+
+<br>
+
+## 하샤드 수
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python
+def solution(x):
+    arr = list(str(x))
+    num = 0
+
+    for i in arr:
+        num = num + int(i)
+
+    return True if (x%num) == 0 else False
+
+def main():
+    arr = 13
+    print(solution(arr))
+
+if __name__ == '__main__':
+    main()
+```
+
+<br>
+
+## 핸드폰 번호 가리기
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python
+def solution(phone_number):
+    answer = list(phone_number)
+
+    for i in range(len(answer)-4):
+        answer[i] = "*" 
+
+    return ''.join(answer)
+
+def main():
+    phone_number = "027778888"
+    print(solution(phone_number))
+
+if __name__ == '__main__':
+    main()
+```
+
+<br>
+
+## 행렬의 덧셈
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python
+def solution(arr1, arr2):
+    answer = [[j for j in range(len(arr1[0]))] for i in range(len(arr1))]
+
+    for i in range(len(arr1)):
+        for j in range(len(arr1[i])):
+            answer[i][j] = arr1[i][j] + arr2[i][j]
+
+    return answer
+
+
+def main():
+    arr1 = [[1,2], [2,3]]
+    arr2 = [[3,4], [5,6]]
+
+    print(solution(arr1, arr2))
+
+if __name__ == '__main__':
+    main()
+```
+
+<br>
+
+## 짝수와 홀수
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```python
+def solution(arr):
+    if len(arr)==1:
+        answer = [-1]
+        return answer
+
+    else:
+        arr.remove(min(arr))
+        return arr
+
+def main():
+    arr = [10]
+    print(solution(arr))
+
+if __name__ == '__main__':
+    main()
+```
+
+<br>
+
+## 
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```java
+
+```
+
+<br>
+
+## 
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| s      | return |
+| ------ | ------ |
+| "a234" | false  |
+| "1234" | true   |
+
+__풀이__
+
+```java
+
+```
+
+<br>
+
 ## 참고
 
 > [출처: 프로그래머스 코딩 테스트 연습](https://programmers.co.kr/learn/challenges)
