@@ -115,7 +115,7 @@ git --version
 
     <img width="682" alt="9" src="https://user-images.githubusercontent.com/47733530/109114517-1fa00780-7781-11eb-9be9-f5454506ecd8.png">
 
-- 해결방법
+- **해결방법 1 : VS Code에 PATH 등록**
 
     <p> 1.  VS Code </p>
 
@@ -128,3 +128,37 @@ git --version
     <p> 4. 터미널에서 code . 으로 확인 </p>
 
     <img width="1016" alt="11" src="https://user-images.githubusercontent.com/47733530/109114909-a359f400-7781-11eb-8869-35c75f8d30d9.png">
+
+<br>
+
+- **해결방법 2 : 터미널에 ~/.bashrc 또는 ~/.zshrc 파일을 실행하여 code 명령의 alias 추가**
+
+
+    <p> 1. 아래 명령어로 ~.zshrc 파일 열기</p>
+    
+    ```
+    open -a TextEdit ~/.zshrc
+    ```
+    <p> 2. 파일 하단에 코드 추가하기 </p>
+
+    ``` 
+    code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+    ```
+
+    <img width="794" alt="21" src="https://user-images.githubusercontent.com/47733530/140093678-1199c63b-dccb-4773-b985-bf94725c9e39.png">
+
+    <p> 3. 변경된 파일 한번 실행하기 </p>
+
+    ``` 
+    source ~/.zshrc
+    ```
+
+    <img width="682" alt="20" src="https://user-images.githubusercontent.com/47733530/140093324-9a3f0e84-9958-417f-86c1-0b4b813d769e.png">
+
+    <p> 다시 터미널에 code . 를 입력하면 VS Code 실행</p>
+
+    <img width="1012" alt="22" src="https://user-images.githubusercontent.com/47733530/140094885-207f6397-6d11-4d74-a7a8-cf1d04b0060a.png">
+
+<br> 
+
+> [참고] https://helloinyong.tistory.com/223
