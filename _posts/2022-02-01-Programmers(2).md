@@ -62,6 +62,7 @@ def solution(numbers, target):
 
 
 - itertools의 product 사용하기 
+  
 ```python
 from itertools import product
 
@@ -77,7 +78,8 @@ def solution(numbers, target):
     return answer
 ```
 
-- return 할때 list.count(target) 사용하기 
+- return 할때 list.count(target) 사용하기
+   
 ```python
 from itertools import product
 
@@ -89,7 +91,8 @@ def solution(numbers, target):
     return product_n.count(target)
 ```
 
-## 타겟 넘버 
+
+## 네트워크
 
 __문제__
 
@@ -132,7 +135,6 @@ def solution(n, computers):
         
     return answer
 ```
-
 
 
 ## 참고
