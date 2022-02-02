@@ -89,6 +89,51 @@ def solution(numbers, target):
     return product_n.count(target)
 ```
 
+## 타겟 넘버 
+
+__문제__
+
+
+__제한사항__
+
+- 
+
+__입출력 예__
+
+| array                 | commands                          | return    |
+| --------------------- | --------------------------------- | --------- |
+| [1, 5, 2, 6, 3, 7, 4] | [[2, 5, 3], [4, 4, 1], [1, 7, 3]] | [5, 6, 3] |
+
+__풀이__
+
+- visited = [1, ,1, 1]  인 경우 모든 네트워크가 하나로 연결 되어 있는 거임
+- 각 컴퓨터의 연결 정보와 visited를 비교  
+  
+```python
+from collections import deque
+
+def solution(n, computers):
+    answer = 0
+    visited = [0] * n    
+
+    while 0 in visited:
+        x = visited.index(0)
+        queue = deque([x])
+        visited[x] = 1
+        
+        while queue:
+            v = queue.popleft()
+            
+            for i in range(n):
+                if visited[i] == 0 and computers[v][i] == 1:
+                    queue.append(i)
+                    visited[i] = 1
+        answer += 1  
+        
+    return answer
+```
+
+
 
 ## 참고
 
