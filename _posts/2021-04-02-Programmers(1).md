@@ -337,6 +337,26 @@ class Solution {
 }
 ```
 
+```python
+def solution(n):
+    s = '수박'
+    answer = ''
+    
+    for i in range(n):
+        if i%2 == 0:
+            answer += s[0]
+            
+        elif i%2 == 1:
+            answer += s[1] 
+    
+    return answer
+```
+
+>```python
+> s = "수박" * n
+> return s[:n]
+>```
+
 <br>
 
 ## 문자열 다루기 기본
@@ -371,16 +391,20 @@ class Solution {
             return false;
         }
     }
-
-    public static void main(String[] args) { 
-        // test case
-        String s = "a234";
-        String ss = "1234";
-
-        System.out.println(solution(ss));
-    }
 }
 ```
+
+```python
+def solution(s):
+    if s.isdigit() and (len(s) == 4 or len(s) == 6):
+        return True
+    else:
+        return False
+```
+
+> ```python
+> s.isdigit() and len(s) in (4, 6)
+> ```
 
 <br>
 
@@ -500,6 +524,12 @@ class Solution {
         }
     }
 }
+```
+
+```python
+def solution(n):
+    n_list = list(reversed(list(str(n))))
+    return list(map(int, n_list))
 ```
 
 <br>
@@ -710,15 +740,21 @@ class Solution {
         }
         return answer;
     }
-
-    public static void main(String[] args) { 
-        // test case      
-        String[] seoul = new String [] { "Jane", "Kim" };  
-        
-        System.out.println(solution(seoul)); 
-    }
 }
 ```
+
+```python
+def solution(seoul):
+    answer = ''
+    
+    for i in range(len(seoul)):
+        if "Kim" in seoul[i]:
+            return "김서방은 " + str(i) + "에 있다"
+```
+
+> ```python
+> return "김서방은 {}에 있다".format(seoul.index('Kim'))
+> ```
 
 <br>
 
@@ -970,13 +1006,25 @@ def solution(num):
             return -1
         
     return answer
+```
 
-def main():
-    arr = 1
-    print(solution(arr))
-
-if __name__ == '__main__':
-    main()
+```python
+def solution(num):
+    answer = 0
+    result = 0
+    
+    while num != 1:
+        if num % 2 == 0:
+            num /= 2
+        elif num % 2 == 1:
+            num = (num * 3) + 1
+        
+        answer += 1
+        
+        if answer == 500:
+            return -1
+    
+    return answer
 ```
 
 <br>
@@ -1009,14 +1057,17 @@ def solution(arr):
 
     # return np.mean(arr) # 속도가 느림
 
-def main():
-    arr = [1, 2, 3, 4]
-
-    print(solution(arr))
-
-if __name__ == '__main__':
-    main()
 ```
+
+```python
+# import numpy as np 
+
+def solution(arr):
+
+    # np.mean(arr)
+
+    return sum(arr)/len(arr) # 이게 더 빠르다
+```python
 
 <br>
 
@@ -1056,6 +1107,17 @@ if __name__ == '__main__':
     main()
 ```
 
+```python
+def solution(x):
+    
+    sum_x = sum(list(map(int, list(str(x)))))
+
+    if x % sum_x == 0:
+        return True
+    
+    return False
+```
+
 <br>
 
 ## 핸드폰 번호 가리기
@@ -1084,14 +1146,21 @@ def solution(phone_number):
         answer[i] = "*" 
 
     return ''.join(answer)
-
-def main():
-    phone_number = "027778888"
-    print(solution(phone_number))
-
-if __name__ == '__main__':
-    main()
 ```
+
+```python
+def solution(phone_number):
+    answer = ''
+    
+    for i in phone_number[0:-4]:
+        answer += i.replace(i, '*')
+        
+    return answer + phone_number[-4:]
+```
+
+> ```python
+> ("*" * (len(s) - 4)) + s[-4:]
+> ```
 
 <br>
 
@@ -1134,6 +1203,19 @@ if __name__ == '__main__':
     main()
 ```
 
+```python
+def solution(arr1, arr2):
+    answer = []
+
+    for i, j in zip(arr1, arr2):
+        answer.append(list(map(lambda a,b:a+b, i, j)))
+    return answer
+```
+
+> ```python
+> [list(map(sum, zip(*x))) for x in zip(arr1, arr2)]
+> ```
+
 <br>
 
 ## 짝수와 홀수
@@ -1174,10 +1256,186 @@ if __name__ == '__main__':
 
 <br>
 
-## 
+## 최대공약수와 최소공배수
+
+__문제__
+두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.
+
+__제한사항__
+
+- 두 수는 1이상 1000000이하의 자연수입니다.
+
+__입출력 예__
+
+| n      | m      | return |
+| ------ | ------ | ------ |
+| 3      | 12     | [3, 12]|
+| 2      | 15     | [1, 10]|
+
+__풀이__
+
+```python
+import math 
+
+def solution(n, m):
+    gcd = math.gcd(n,m)
+    
+    return [gcd, (n * m) // gcd]
+```
+
+<br>
+
+## 정수 제곱근 판별
 
 __문제__
 
+임의의 양의 정수 n에 대해, n이 어떤 양의 정수 x의 제곱인지 아닌지 판단하려 합니다.
+n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고, n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완성하세요.
+
+
+__제한사항__
+
+- n은 1이상, 50000000000000 이하인 양의 정수입니다.
+
+__입출력 예__
+
+| n      | return |
+| ------ | ------ |
+| 121    | 144    |
+| 3      | -1     |
+
+__풀이__
+
+- int()로 제곱근을 안감싸주니 몇 개의 테스트 케이스에서 오류가 났다 ㅠㅠ 
+  
+```python
+import math
+
+def solution(n):
+    if n == int(math.pow(int(math.sqrt(n)), 2)):
+        return math.pow(int(math.sqrt(n)) + 1, 2)
+                
+    else:
+        return -1
+```
+
+```python
+def solution(n):
+    if n == int(n ** (0.5)) ** 2:
+        return int(n **(0.5) + 1) ** 2
+                
+    else:
+        return -1
+```
+
+<br>
+
+## 정수 내림차순으로 배치하기
+
+__문제__
+함수 solution은 정수 n을 매개변수로 입력받습니다. n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요. 예를들어 n이 118372면 873211을 리턴하면 됩니다.
+
+__제한사항__
+
+- n은 1이상 8000000000 이하인 자연수입니다.
+
+__입출력 예__
+
+| n      | return |
+| ------ | ------ |
+| 118372 | 873211 |
+
+__풀이__
+
+```python
+def solution(n):
+    s = sorted(str(n), reverse = True)
+    return int(''.join(s))
+```
+
+<br>
+
+
+## 자릿수 더하기
+
+__문제__
+
+자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.
+예를들어 N = 123이면 1 + 2 + 3 = 6을 return 하면 됩니다.
+
+__제한사항__
+
+- N의 범위 : 100,000,000 이하의 자연수
+
+__입출력 예__
+
+| N      | answer |
+| ------ | ------ |
+| 123    | 6      |
+| 987    | 24     |
+
+__풀이__
+
+```python
+def solution(n):
+    return sum(list(map(int, list(str(n)))))
+```
+
+> ```python
+> sum(map(int, str(number)))
+> ```
+
+<br>
+
+## 이상한 문자 만들기
+
+__문제__
+
+문자열 s는 한 개 이상의 단어로 구성되어 있습니다. 각 단어는 하나 이상의 공백문자로 구분되어 있습니다. 각 단어의 짝수번째 알파벳은 대문자로, 홀수번째 알파벳은 소문자로 바꾼 문자열을 리턴하는 함수, solution을 완성하세요.
+
+
+__제한사항__
+
+- 문자열 전체의 짝/홀수 인덱스가 아니라, 단어(공백을 기준)별로 짝/홀수 인덱스를 판단해야합니다.
+  
+- 첫 번째 글자는 0번째 인덱스로 보아 짝수번째 알파벳으로 처리해야 합니다.
+
+__입출력 예__
+
+| s                 | return            |
+| ----------------- | ----------------- |
+| "try hello world" | "TrY HeLlO WoRlD" |
+
+__풀이__
+
+```python
+def solution(s):
+    word = list(map(list, s.split(' ')))
+    
+    for i in range(len(word)):
+        for j in range(len(word[i])):
+            if j%2 == 0:
+                word[i][j] = word[i][j].upper()
+                
+            elif j%2 == 1:
+                word[i][j] = word[i][j].lower()
+                
+        word[i] = ''.join(word[i])  
+    
+    return ' '.join(word)
+```
+
+> ```python
+> return " ".join(map(lambda x: "".join([a.lower() if i % 2 else a.upper() for i, a in enumerate(x)]), s.split(" ")))
+> ```
+
+<br>
+
+## 시저 암호
+
+__문제__
+
+어떤 문장의 각 알파벳을 일정한 거리만큼 밀어서 다른 알파벳으로 바꾸는 암호화 방식을 시저 암호라고 합니다. 예를 들어 "AB"는 1만큼 밀면 "BC"가 되고, 3만큼 밀면 "DE"가 됩니다. "z"는 1만큼 밀면 "a"가 됩니다. 문자열 s와 거리 n을 입력받아 s를 n만큼 민 암호문을 만드는 함수, solution을 완성해 보세요.
 
 __제한사항__
 
@@ -1191,36 +1449,36 @@ __입출력 예__
 | "1234" | true   |
 
 __풀이__
+- Z가 넘어가는 경우를 생각해 % 26
 
-```java
-
+```python
+def solution(s, n):
+    answer = ''
+    s = list(s)
+    
+    for i in range(len(s)): 
+        if s[i].isupper(): 
+            s[i] = chr((ord(s[i]) - ord('A') + n) % 26 + ord('A')) 
+            
+        elif s[i].islower(): 
+            s[i] = chr((ord(s[i]) - ord('a')+ n) % 26 + ord('a')) 
+    
+    return "".join(s)
 ```
 
 <br>
 
-## 
+## 소수 찾기
 
-__문제__
-
-
-__제한사항__
-
-- 
-
-__입출력 예__
-
-| s      | return |
-| ------ | ------ |
-| "a234" | false  |
-| "1234" | true   |
-
-__풀이__
-
-```java
-
-```
-
-<br>
+def solution(n):
+    answer = 0
+    num = set([ i for i in range(2, n+1)])
+    
+    print(num)
+    for i in range(2, n+1):
+        num = num - set([i for i in range(i**2, n+1, i)])
+    
+    return len(num)
 
 ## 참고
 
@@ -1228,26 +1486,28 @@ __풀이__
 
 <br>
 
-## 
+## 약수의 합
 
 __문제__
 
+정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.
 
 __제한사항__
 
-- 
+- n은 0 이상 3000이하인 정수입니다.
 
 __입출력 예__
 
-| s      | return |
+| n      | return |
 | ------ | ------ |
-| "a234" | false  |
-| "1234" | true   |
+| 12     | 28     |
+| 5      | 6      |
 
 __풀이__
 
-```java
-
+```python
+def solution(n):
+    return sum([i for i in range(1, n+1) if (n%i==0)])
 ```
 
 <br>
