@@ -7,16 +7,16 @@
 $background-color: #f8fffc !default;
 $text-color: #000000 !default;
 $muted-text-color: #529477 !default;
-$primary-color: #444463 !default;
-$border-color: mix(#fff, #393e46, 75%) !default;
+$primary-color: #009655 !default;
+$border-color: mix(#fff, #3f6149, 75%) !default;
 $footer-background-color: $primary-color !default;
-$link-color: #62497a !default;
+$link-color: #35a059 !default;
 $masthead-link-color: $text-color !default;
 $masthead-link-color-hover: $text-color !default;
 $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 
 .page__footer {
-  color: #e6e6ff !important; // override
+  color: #455f51 !important; // override
 }
 
 .page__footer-follow .social-icons .svg-inline--fa {
