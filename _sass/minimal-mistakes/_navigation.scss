@@ -500,14 +500,14 @@
   font-family: $sans-serif-narrow;
   color: $gray;
   background-color: $background-color;
-  /*border: 1px solid $border-color;
-  border-radius: $border-radius; */
+  border: 5px solid $border-color;
+  border-radius: $border-radius;
   -webkit-box-shadow: $box-shadow;
   box-shadow: $box-shadow;
 
   .nav__title {
     color: #fff;
-    font-size: $type-size-6;
+    font-size: $type-size-5;
     
     /*background: $primary-color;*/
     background: #b0d4c3;
