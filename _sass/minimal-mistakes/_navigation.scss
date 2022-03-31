@@ -500,8 +500,9 @@
   font-family: $sans-serif-narrow;
   color: $gray;
   background-color: $background-color;
-  border: 5px solid $border-color;
-  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  /*border-radius: $border-radius;*/
+  border-radius: 5px;
   -webkit-box-shadow: $box-shadow;
   box-shadow: $box-shadow;
 
